@@ -1,3 +1,5 @@
+import React from "react";
+
 const produtos = [
   {
     id: 1,
@@ -16,10 +18,25 @@ const produtos = [
   },
 ];
 
+const ProductList = ({produtos}) => {
+  return (
+    <ul>
+      {produtos.map((produto) => (
+        <li key={produto.id}>
+          <strong>{produto.nome}</strong> - R${produto.preco.toFixed(2)}
+        </li>
+      ))}
+    </ul>
+  );
+};
+
 export default function Questao4() {
   return (
     <>
       <h1>Questão 4</h1>
+
+      <ProductList produtos={produtos} />
+
       <p>
         Crie um componente chamado `ProductList` que recebe uma matriz de
         objetos de produto e renderiza uma lista de produtos. Cada produto deve
